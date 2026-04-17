@@ -6,7 +6,7 @@ ComfyFlush is a PowerShell script designed to automatically recycle [ComfyUI](ht
 
 *   **VRAM Reclamation:** Automatically start/stop ComfyUI background `python` processes to reclaim significant VRAM, potentially freeing up capacity equivalent to a consumer-grade GPU (approx. $499 USD average capacity as of 2026).
 *   **Memory Reclamation:** Clears out system memory as well.
-*   **Multi-Task Support:** Designed to work seamlessly in tandem with services like [Open WebUI Desktop](https://github.com/open-webui/desktop), allowing efficient resource sharing.
+*   **Multi-Task Support:** Designed to work seamlessly in tandem with services like [Open WebUI Desktop](https://github.com/open-webui/desktop) and [StabilityMatrix](https://github.com/LykosAI/StabilityMatrix), allowing efficient resource sharing.
 *   **Automation:** Integrates with the Windows Task Scheduler to run autonomously, ensuring consistent VRAM management without manual intervention. No extensions required!
 *   **Logging:** Log capture.
 
@@ -59,7 +59,9 @@ Because this script is a beta release, you may need to temporarily adjust the Po
 
 ## 📜 Changelog
 
-### v0.0.1.0 (Beta) - 2026-04-17
+### v0.0.2.0 (Beta) - 2026-Apr-17
+*   🛠️ **Bugfix:** Got process tree close working for ad-hoc CLI / PowerShell using try/while blocks. Need to incorporate the similar for Task Scheduler using $parentPid.
+### v0.0.1.0 (Beta) - 2026-Apr-17
 *   ✅ **Feature:** Initial functional beta release.
 *   ✅ **Feature:** Designed to integrate with Open WebUI environments.
 *   🐛 **Bug:** Python.exe processes will not always terminate when manually ended via Task Scheduler. (Working on robust exit handling.)
