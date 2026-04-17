@@ -62,7 +62,7 @@ Because this script is a beta release, you may need to temporarily adjust the Po
 ## 📜 Changelog
 
 ### v0.0.2.0 (Beta) - 2026-Apr-17
-*   🛠️ **Bugfix:** Got process tree close working for ad-hoc CLI / PowerShell using try/while blocks. Need to incorporate the similar for Task Scheduler using $parentPid.
+*   🛠️ **Bugfix:** Got process tree close working for ad-hoc CLI / PowerShell using try/while/finally blocks. Need to incorporate the similar for Task Scheduler using $parentPid.
 ### v0.0.1.0 (Beta) - 2026-Apr-17
 *   ✅ **Feature:** Initial functional beta release.
 *   ✅ **Feature:** Designed to integrate with Open WebUI environments.
@@ -80,9 +80,9 @@ Because this script is a beta release, you may need to temporarily adjust the Po
 *   Initial code.
 
 ## Background
-ComfyUI often leaves consumed VRAM and RAM locked even when processes are idle, which hinders multi-tasking on cost-effective systems. This script automates native Windows management to reliably recycle resources, ensuring that VRAM and RAM are cleared when not actively needed.
-Allowing you to enable large language models (LLM) and image generation ([ComfyUI](https://www.comfy.org/)) upstream features together with [Open WebUI Desktop](https://github.com/open-webui/desktop).
-This is intended for system automation, not manual extension activation.
+ComfyUI often leaves consumed GPU VRAM and system RAM locked even when processes are idle, which hinders multi-tasking on cost-effective systems. This script automates native Windows management to reliably recycle resources, ensuring that VRAM and RAM are cleared when not actively needed.
+Allowing you to enable large language models (LLM) and image generation ( [ComfyUI](https://www.comfy.org/) ) upstream features together with [Open WebUI Desktop](https://github.com/open-webui/desktop).
+This is intended for system automation, no manual extensions.
 
 ## 🪪 Attribution & License
 
