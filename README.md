@@ -79,7 +79,7 @@ Because this script is a beta release, you may need to temporarily adjust the Po
 
 ## Background
 ComfyUI often leaves consumed VRAM and RAM locked even when processes are idle, which hinders multi-tasking on cost-effective systems. This script automates native Windows management to reliably recycle resources, ensuring that VRAM and RAM are cleared when not actively needed.
-Allowing you to enable large language models (LLM) and image generation ([ComfyUI](https://www.comfy.org/)) upstream features together for [Open WebUI Desktop](https://github.com/open-webui/desktop).
+Allowing you to enable large language models (LLM) and image generation ([ComfyUI](https://www.comfy.org/)) upstream features together with [Open WebUI Desktop](https://github.com/open-webui/desktop).
 This is intended for system automation, not manual extension activation.
 
 ## 🪪 Attribution & License
