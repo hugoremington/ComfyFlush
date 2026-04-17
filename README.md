@@ -1,11 +1,11 @@
 # 🚽 ComfyFlush
 
-ComfyFlush is a PowerShell script designed to automatically recycle [ComfyUI](https://www.comfy.org/) background processes at set intervals with Windows Task Scheduler to effectively flush and reclaim VRAM. It is intended to help run AI LLM and SD Image Generation features in tandem on cost-effective hardware, for [Open WebUI Desktop](https://github.com/open-webui/desktop) downstream service.
+ComfyFlush is a PowerShell script designed to automatically recycle [ComfyUI](https://www.comfy.org/) background processes at set intervals with Windows Task Scheduler to effectively flush and reclaim GPU VRAM. It is intended to help run AI LLM and SD Image Generation features in tandem on cost-effective hardware, for [Open WebUI Desktop](https://github.com/open-webui/desktop) downstream service.
 
 ## ✨ Features
 
-*   **VRAM Reclamation:** Automatically start/stop ComfyUI background `python` processes to reclaim significant VRAM, potentially freeing up capacity equivalent to a consumer-grade GPU (approx. $499 USD average capacity as of 2026).
-*   **Memory Reclamation:** Clears out system memory as well.
+*   **VRAM Reclamation:** Automatically start/stop ComfyUI background `python` processes to free up significant GPU VRAM, capacity equivalent up to a consumer-grade GPU (approx. $499 USD average capacity as of 2026).
+*   **Memory Reclamation:** Free up system memory RAM as well.
 *   **Multi-Task Support:** Designed to work seamlessly in tandem with services like [Open WebUI Desktop](https://github.com/open-webui/desktop) and [StabilityMatrix](https://github.com/LykosAI/StabilityMatrix), allowing efficient resource sharing.
 *   **Automation:** Integrates with the Windows Task Scheduler to run autonomously, ensuring consistent VRAM management without manual intervention. No extensions required!
 *   **Logging:** Log capture.
