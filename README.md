@@ -2,19 +2,25 @@
 
 ComfyFlush is a PowerShell script designed to automatically recycle [ComfyUI](https://www.comfy.org/) background processes at set intervals with Windows Task Scheduler to effectively flush and reclaim GPU VRAM. It is intended to help run local offline AI LLM and SD Image Generation features in side-by-side on cost-effective hardware with [Open WebUI Desktop](https://github.com/open-webui/desktop).
 
+## 💡 Why ComfyFlush?
+
+Running heavy AI models simultaneously often leads to "Out of Memory" errors. ComfyFlush solves this by:
+* **Automating VRAM Recovery:** Periodically clears VRAM by cycling ComfyUI processes. Potentially saving up to a consumer grade GPU (approx. $499 as of 2026).
+* **Enabling Multi-Tasking:** Allows you to run LLMs and Diffusion models on the same GPU without manual intervention.
+* **Low Overhead:** Runs as a lightweight background task with minimal CPU/RAM usage.
+
 ## ✨ Features
 
-*   **VRAM Reclamation:** Automatically start/stop ComfyUI background `python` processes to free up significant GPU VRAM, capacity equivalent up to a consumer-grade GPU (approx. $499 USD average capacity as of 2026).
-*   **Memory Reclamation:** Free up system memory RAM as well.
-*   **Multi-Task Support:** Designed to work seamlessly in tandem with services like [Open WebUI Desktop](https://github.com/open-webui/desktop) and [StabilityMatrix](https://github.com/LykosAI/StabilityMatrix), allowing efficient resource sharing.
-*   **Automation:** Integrates with the Windows Task Scheduler to run autonomously, ensuring consistent VRAM management without manual intervention. No extensions required!
-*   **Logging:** Log capture.
+* **🔄 Automated VRAM Management:** Clears memory without needing manual restarts.
+* **🛠️ Native Integration:** Designed specifically for [Stability Matrix](https://github.com/LykosAI/StabilityMatrix).
+* **🚀 Zero-Touch Operation:** Set it up once and let it run in the background.
+* **📋 Detailed Logging:** Keeps track of process cycles for easy debugging.
 
 ## ⚙️ Requirements
 
 *   **Operating System:** Windows 10 or Windows 11
 *   **Software:** Stability Matrix, ComfyUI package installed
-*   **Hardware:** NVIDIA GPU (required for effective VRAM management)
+*   **Hardware:** NVIDIA GPU (Other GPUs untested yet)
 
 ## 🛠️ Usage & Setup
 
