@@ -1,26 +1,30 @@
 # 🚽 ComfyFlush
 
-ComfyFlush is a PowerShell script designed to automatically recycle [ComfyUI](https://www.comfy.org/) background processes at set intervals with Windows Task Scheduler to effectively flush and reclaim GPU VRAM. It is intended to help run local offline AI LLM and SD Image Generation features in side-by-side on cost-effective hardware with [Open WebUI Desktop](https://github.com/open-webui/desktop).
+ComfyFlush is a PowerShell script that enables seamless multi-tasking between AI LLMs and Image Generation on a single GPU. It achieves this by automatically recycling [ComfyUI](https://www.comfy.org/) processes at set intervals via Windows Task Scheduler to effectively flush and reclaim GPU VRAM. The tool is designed to run local LLM and Stable Diffusion workloads side-by-side on cost-effective hardware using [Open WebUI Desktop](https://github.com/open-webui/desktop).
+
+---
 
 ## 💡 Why ComfyFlush?
 
 Running heavy AI models simultaneously often leads to "Out of Memory" errors. ComfyFlush solves this by:
-* **Automating VRAM Recovery:** Periodically clears VRAM by cycling ComfyUI processes. Potentially saving up to a consumer grade GPU (approx. $499 as of 2026).
+* **Automating VRAM Recovery:** Periodically clears VRAM by cycling ComfyUI processes.
 * **Enabling Multi-Tasking:** Allows you to run LLMs and Diffusion models on the same GPU without manual intervention.
 * **Low Overhead:** Runs as a lightweight background task with minimal CPU/RAM usage.
 
 ## ✨ Features
 
-* **🔄 Automated VRAM Management:** Clears memory without needing manual restarts.
-* **🛠️ Native Integration:** Designed specifically for [Stability Matrix](https://github.com/LykosAI/StabilityMatrix).
+* **🔄 Automated VRAM Management:** Clears memory without needing manual restarts. Potentially saving you resources equivalent to a consumer grade GPU (approx. $499 as of 2026).
+* **🛠️ Native Integration:** Designed specifically for users of [Stability Matrix](https://github.com/LykosAI/StabilityMatrix). It may work with other ComfyUI packages, if they too use batch and python scripts.
 * **🚀 Zero-Touch Operation:** Set it up once and let it run in the background.
 * **📋 Detailed Logging:** Keeps track of process cycles for easy debugging.
 
-## ⚙️ Requirements
+## 🚀 Getting Started
 
-*   **Operating System:** Windows 10 or Windows 11
-*   **Software:** Stability Matrix, ComfyUI package installed
-*   **Hardware:** NVIDIA GPU (Other GPUs untested yet)
+### Prerequisites
+
+* **Windows OS** (Optimized for Windows Task Scheduler)
+* **Python/PowerShell** environment
+* A running instance of ComfyUI (Stability Matrix recommended)
 
 ## 🛠️ Usage & Setup
 
@@ -33,7 +37,7 @@ Follow these steps to configure ComfyFlush for automated VRAM flushing via Windo
     # --- Configuration ---
 
     # Set the path to your ComfyUI installation directory
-    $ComfyDir      = "C:\Program Files\ComfyUI"
+    $ComfyDir      = "C:\Program Files\StabilityMatrix\Packages\ComfyUI"
 
     # Set your preferred recycle timer in seconds (Default: 595 seconds / ~10 minutes)
     $Timeout       = 595
@@ -84,13 +88,16 @@ Because this script is a beta release, you may need to temporarily adjust the Po
 *   Initial code.
 
 ## Background
-ComfyUI often leaves consumed GPU VRAM and system RAM locked even when processes are idle, which hinders multi-tasking on cost-effective systems. This script automates native Windows management to reliably recycle resources, ensuring that VRAM and RAM are cleared when not actively needed.
-Allowing you to enable large language models (LLM) and image generation ( [ComfyUI](https://www.comfy.org/) ) upstream features together with [Open WebUI Desktop](https://github.com/open-webui/desktop).
-This is intended for system automation, no manual extensions.
-Built for Nvidia ComfyUI package running via [StabilityMatrix](https://github.com/LykosAI/StabilityMatrix).
 
-## 🪪 Attribution & License
+**The Problem**
+Let's be honest: running AI models is a constant battle for VRAM. ComfyUI and other tools are amazing, but they have a habit of holding onto memory long after you're done with a task. If you're trying to switch between an LLM and an image generator on a single GPU, you usually end up in a "memory full" loop or stuck manually killing processes.
 
-Author: Hugo Remington
+**The Solution**
+I built this because I was tired of the manual cleanup. This tool automs the process of clearing out that stuck VRAM, making it possible to actually use your GPU for more than one thing at a time without the headache.
 
-License: MIT
+## ⚖️ License
+
+Distributed under the MIT License. See `LICENSE` for more information.
+
+---
+*Disclaimer: This tool is provided "as is" without warranty. Use at your own risk. Always ensure your work is saved before running automated process management tools.*
