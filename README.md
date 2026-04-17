@@ -13,7 +13,7 @@ Running heavy AI models simultaneously often leads to "Out of Memory" errors. Co
 
 ## ✨ Features
 
-* **🔄 Automated VRAM Management:** Clears memory without needing manual restarts. Potentially saving you resources equivalent to a consumer grade GPU (approx. $499 as of 2026).
+* **🔄 Automated VRAM Management:** Clears memory without needing manual restarts. Potentially saving you resources equivalent to a consumer grade GPU (approx. $499 in 2026).
 * **🛠️ Native Integration:** Designed specifically for users of [Stability Matrix](https://github.com/LykosAI/StabilityMatrix). It may work with other ComfyUI packages, if they too use batch and python scripts.
 * **🚀 Zero-Touch Operation:** Set it up once and let it run in the background.
 * **📋 Detailed Logging:** Keeps track of process cycles for easy debugging.
