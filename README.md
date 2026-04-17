@@ -2,8 +2,6 @@
 
 ComfyFlush is a PowerShell script designed to automatically recycle [ComfyUI](https://www.comfy.org/) background processes at set intervals with Windows Task Scheduler to effectively flush and reclaim GPU VRAM. It is intended to help run local offline AI LLM and SD Image Generation features in side-by-side on cost-effective hardware with [Open WebUI Desktop](https://github.com/open-webui/desktop).
 
-You can save your money on buying that expensive GPU just to get image generation working on your offline AI setup 😉
-
 ## ✨ Features
 
 *   **VRAM Reclamation:** Automatically start/stop ComfyUI background `python` processes to free up significant GPU VRAM, capacity equivalent up to a consumer-grade GPU (approx. $499 USD average capacity as of 2026).
