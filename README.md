@@ -29,6 +29,9 @@ Running heavy AI models simultaneously often leads to "Out of Memory" errors. Co
 ## 👷 How It Works
 ComfyFlush manages ComfyUI by starting python venv and stopping it using an automatic timer. Windows Task Scheduler recycles this process for constant uptime.
 
+> [!IMPORTANT]
+> In order for it to work, you must Start ComfyUI through ComfyFlush. Any instances of ComfyUI running outside of this scope won't work, it will still hog up GPU VRAM!
+
 ### Workflow Overview
 Task Scheduler → ComfyFlush → Activate Python Venv → Launch ComfyUI → Wait (User Defined Time) → Kill Process (Flush VRAM) → Repeat
 
@@ -41,27 +44,32 @@ Follow these steps to configure and automate **ComfyFlush**.
 2. Extract the contents to your preferred local directory (e.g., `C:\Program Files\StabilityMatrix\Packages\ComfyUI`).
 
 ### 2. Edit the script
-1. Change var to your install path ```$ComfyDir      = "C:\Program Files\StabilityMatrix\Packages\ComfyUI"```.
-2. Set your preferred timer (Default: 595 seconds for 10 minutes) ```$Timeout       = 595```.
+1. Change var to your install path to your extracted ComfyFlush.ps1 script location
+```$ComfyDir      = "C:\Program Files\StabilityMatrix\Packages\ComfyUI"```.
+2. Set your preferred timer (Default: 595 seconds for 10 minutes). This will need to match Windows Task Scheduler
+```$Timeout       = 595```.
 3. Save and close.
 
 ### 3. Create a Windows Scheduled Task
-1. Triggers
+1. **General**
+ * Name: ComfyFlush
+ * Description: ComfyFlush is a tool that enables automatic GPU VRAM reclamation by managing ComfyUI venve start/stop.
+ * When running the task, use the following user account: Run whether user is logged on or not.
+ * Configure for: Windows 10.
+2. **Triggers**
  * Begin the task: On a schedule.
  * Settings: Daily, Recur every [1] days.
  * Advanced settings
  * Repeat task every: 10 minutes.
-2. Actions
- *  Action: Start a program.
+3. **Actions**
+ * Action: Start a program.
  * Program/script: `C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe`
  * Add arguments (optional): `-ExecutionPolicy Bypass -File "C:\Program Files\StabilityMatrix\Packages\ComfyUI\ComfyFlush.ps1"`
- * Note: You will need to bypass execution policy as this is a beta release.
+ * *Note: You will need to bypass execution policy as this is a beta release.*
  * Start in (optional): `C:\Program Files\StabilityMatrix\Packages\ComfyUI`
  * Note: There are no "" quote marks in Start in (optional).
-3. General
- * When running the task, use the following user account: Run whether user is logged on or not.
- * Configure for: Windows 10.
-4. Click OK to finish.
+4. **Finish**
+Click OK to finish.
 
 ### 4. Run ComfyFlush
 1. Run the task via Windows Task Scheduler.
