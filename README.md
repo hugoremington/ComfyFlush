@@ -30,7 +30,7 @@ Running heavy AI models simultaneously often leads to "Out of Memory" errors. Co
 ComfyFlush manages ComfyUI by starting python venv and stopping it using an automatic timer. Windows Task Scheduler recycles this process for constant uptime.
 
 > [!IMPORTANT]
-> In order for it to work, you must Start ComfyUI through ComfyFlush. Any instances of ComfyUI running outside of this scope won't work, it will still hog up GPU VRAM!
+> In order for it to work, you must start ComfyUI through ComfyFlush. Any instances of ComfyUI running outside of this scope won't work, it will still hog up GPU VRAM!
 
 ### Workflow Overview
 Task Scheduler → ComfyFlush → Activate Python Venv → Launch ComfyUI → Wait (User Defined Time) → Kill Process (Flush VRAM) → Repeat
@@ -65,7 +65,8 @@ Follow these steps to configure and automate **ComfyFlush**.
  * Action: Start a program.
  * Program/script: `C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe`
  * Add arguments (optional): `-ExecutionPolicy Bypass -File "C:\Program Files\StabilityMatrix\Packages\ComfyUI\ComfyFlush.ps1"`
- * *Note: You will need to bypass execution policy as this is a beta release.*
+ * > [!Note] 
+   > You will need to bypass execution policy as this is a beta release.
  * Start in (optional): `C:\Program Files\StabilityMatrix\Packages\ComfyUI`
  * Note: There are no "" quote marks in Start in (optional).
 4. **Finish**
