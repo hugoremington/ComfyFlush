@@ -65,8 +65,7 @@ Follow these steps to configure and automate **ComfyFlush**.
  * Action: Start a program.
  * Program/script: `C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe`
  * Add arguments (optional): `-ExecutionPolicy Bypass -File "C:\Program Files\StabilityMatrix\Packages\ComfyUI\ComfyFlush.ps1"`
-   > [!Note] 
-   > You will need to bypass execution policy as this is a beta release.
+   > Note: You will need to bypass execution policy as this is a beta release.
  * Start in (optional): `C:\Program Files\StabilityMatrix\Packages\ComfyUI`
  * Note: There are no "" quote marks in Start in (optional).
 4. **Finish**
