@@ -50,7 +50,7 @@ Follow these steps to configure and automate **ComfyFlush**.
  * Begin the task: On a schedule.
  * Settings: Daily, Recur every [1] days.
  * Advanced settings
- * Repeat task every: XX duration. 15 minutes recommended.
+ * Repeat task every: 10 minutes.
 2. Actions
  *  Action: Start a program.
  * Program/script: `C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe`
