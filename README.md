@@ -26,46 +26,45 @@ Running heavy AI models simultaneously often leads to "Out of Memory" errors. Co
 * **Python/PowerShell** environment
 * A running instance of ComfyUI (Stability Matrix recommended)
 
-## 🛠️ Usage & Setup
+## 👷 How It Works
+ComfyFlush manages ComfyUI by starting python venv and stopping it using an automatic timer. Windows Task Scheduler recycles this process for constant uptime.
 
-Follow these steps to configure ComfyFlush for automated VRAM flushing via Windows Task Scheduler.
+### Workflow Overview
+Task Scheduler → ComfyFlush → Activate Python Venv → Launch ComfyUI → Wait (User Defined Time) → Kill Process (Flush VRAM) → Repeat
 
-### Step 1: Configure the Script
+## 🛠 Usage & Setup
 
-1.  **Edit the Script:** Open the `ComfyFlush.ps1` file and modify the following variables according to your setup:
-    ```powershell
-    # --- Configuration ---
+Follow these steps to configure and automate **ComfyFlush**.
 
-    # Set the path to your ComfyUI installation directory
-    $ComfyDir      = "C:\Program Files\StabilityMatrix\Packages\ComfyUI"
+### 1. Installation
+1. Download the repository ZIP file.
+2. Extract the contents to your preferred local directory (e.g., `C:\Program Files\StabilityMatrix\Packages\ComfyUI`).
 
-    # Set your preferred recycle timer in seconds (Default: 595 seconds / ~10 minutes)
-    $Timeout       = 595
-    ```
-2.  **Save the file.**
+### 2. Edit the script
+1. Change var to your install path ```$ComfyDir      = "C:\Program Files\StabilityMatrix\Packages\ComfyUI"```.
+2. Set your preferred timer (Default: 595 seconds for 10 minutes) ```$Timeout       = 595```.
+3. Save and close.
 
-### Step 2: Set up the Windows Scheduled Task
+### 3. Create a Windows Scheduled Task
+1. Triggers
+ * Begin the task: On a schedule.
+ * Settings: Daily, Recur every [1] days.
+ * Advanced settings
+ * Repeat task every: XX duration. 15 minutes recommended.
+2. Actions
+ *  Action: Start a program.
+ * Program/script: `C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe`
+ * Add arguments (optional): `-ExecutionPolicy Bypass -File "C:\Program Files\StabilityMatrix\Packages\ComfyUI\ComfyFlush.ps1"`
+ * Note: You will need to bypass execution policy as this is a beta release.
+ * Start in (optional): `C:\Program Files\StabilityMatrix\Packages\ComfyUI`
+ * Note: There are no "" quote marks in Start in (optional).
+3. General
+ * When running the task, use the following user account: Run whether user is logged on or not.
+ * Configure for: Windows 10.
+4. Click OK to finish.
 
-Create a new task in the Windows Task Scheduler to execute the script automatically:
-
-1.  **Trigger:** Set the task to run on a recurring schedule (e.g., Daily).
-2.  **Action:** Set the task to **Start a program**.
-3.  **Program/Script:** Specify the PowerShell executable:
-    ```
-    C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
-    ```
-4.  **Add Arguments:** Use the following arguments to execute the script, specifying the path and the timeout:
-    ```
-    -ExecutionPolicy Bypass -File "C:\Program Files\ComfyUI\ComfyFlush.ps1"
-    ```
-    *(Note: You must ensure the script path is correct.)*
-5.  **Settings:** Ensure the task runs under an account that has the necessary permissions to interact with the ComfyUI processes.
-
-### Step 💡 Important Note on Execution Policy
-
-Because this script is a beta release, you may need to temporarily adjust the PowerShell Execution Policy for this task to run successfully:
-
-*   **Action:** If necessary, configure the Task Scheduler to run with elevated permissions, or temporarily set the execution policy via an elevated PowerShell session before setting up the task.
+### 4. Run ComfyFlush
+1. Run the task via Windows Task Scheduler.
 
 ## 📜 Changelog
 
